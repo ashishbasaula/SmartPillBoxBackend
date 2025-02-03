@@ -21,7 +21,11 @@ const sendNotification = (title, message, tokens) => {
         target_channel: "push",
         contents: { "en": message },
         headings: { "en": title },
-        include_player_ids: [tokens]
+        include_player_ids: [tokens],
+        buttons: [
+          {"id": "accept", "text": "Accept", "icon": "accept_icon_url"},
+          {"id": "decline", "text": "Decline", "icon": "decline_icon_url"}
+      ]
       };
 
     axios.post(url, data, { headers })
